@@ -1,184 +1,184 @@
--- ¹®ÀÚÇüÇÔ¼ö
+-- ë¬¸ìí˜•í•¨ìˆ˜
 select LOWER('ABC') , UPPER('abc'), INITCAP('abc')
 from dual;
 
--- CONCAT, SUBSTR(¹®ÀÚ¿­, ½ÃÀÛÀ§Ä¡, ¹®ÀÚ¿­°³¼ö)
-select CONCAT('Çï·Î¿ì', ' ¿ùµå!'),  SUBSTR('Çï·Î¿ì¿ùµå',2,2), LENGTH('Çï·Î¿ì'),
-            INSTR('Çï·Î¿ì', '·Î'), TRIM('      °ø¹é      '), '      °ø¹é      '
+-- CONCAT, SUBSTR(ë¬¸ìì—´, ì‹œì‘ìœ„ì¹˜, ë¬¸ìì—´ê°œìˆ˜)
+select CONCAT('í—¬ë¡œìš°', ' ì›”ë“œ!'),  SUBSTR('í—¬ë¡œìš°ì›”ë“œ',2,2), LENGTH('í—¬ë¡œìš°'),
+            INSTR('í—¬ë¡œìš°', 'ë¡œ'), TRIM('      ê³µë°±      '), '      ê³µë°±      '
 from dual;
 
--- ¹®ÀÚÇü ÇÔ¼ö ¿¹Á¦
+-- ë¬¸ìí˜• í•¨ìˆ˜ ì˜ˆì œ
 SELECT department_id, last_name, department_id
 FROM employees
 WHERE lower(last_name) = 'higgins';
 
-select last_name, CONCAT('Á÷¾÷¸íÀÌ  ', job_id)  as  Á÷¾÷¸í
+select last_name, CONCAT('ì§ì—…ëª…ì´  ', job_id)  as  ì§ì—…ëª…
 from employees
 where SUBSTR(job_id, 4, 3) = 'REP';
 
---¹®ÀÚ¿­ Ä¡È¯ ÇÔ¼ö replace
-SELECT REPLACE('Çï·Î¿ì¿ùµå', '¿ùµå', '¼¼»ó') FROM DUAL;
+--ë¬¸ìì—´ ì¹˜í™˜ í•¨ìˆ˜ replace
+SELECT REPLACE('í—¬ë¡œìš°ì›”ë“œ', 'ì›”ë“œ', 'ì„¸ìƒ') FROM DUAL;
 
--- ¿¹Á¦)
+-- ì˜ˆì œ)
 SELECT  LOWER('LAST_NAME'), UPPER('last_name'), INITCAP('email')
 from dual;
 
--- ¿¹Á¦)
+-- ì˜ˆì œ)
 select SUBSTR('job_id',1,2)
 from dual;
 
--- ¼ıÀÚÇü ÇÔ¼ö : round´Â ¹İ¿Ã¸², trunc´Â ¹ö¸²
-select ROUND(15.193,1) ¼Ò¼öÃ¹Â°, ROUND(15.193) Á¤¼ö, ROUND(15.193,2) ¼Ò¼öµÑÂ°
--- ÀÚ¸´¼ö°¡ 1ÀÌ¸é ¼Ò¼öÃ¹Â°ÀÚ¸®±îÁö ¹İ¿Ã¸², ÀÚ¸´¼ö°¡ ¾øÀ¸¸é Á¤¼ö
+-- ìˆ«ìí˜• í•¨ìˆ˜ : roundëŠ” ë°˜ì˜¬ë¦¼, truncëŠ” ë²„ë¦¼
+select ROUND(15.193,1) ì†Œìˆ˜ì²«ì§¸, ROUND(15.193) ì •ìˆ˜, ROUND(15.193,2) ì†Œìˆ˜ë‘˜ì§¸
+-- ìë¦¿ìˆ˜ê°€ 1ì´ë©´ ì†Œìˆ˜ì²«ì§¸ìë¦¬ê¹Œì§€ ë°˜ì˜¬ë¦¼, ìë¦¿ìˆ˜ê°€ ì—†ìœ¼ë©´ ì •ìˆ˜
 from dual; 
 
-select TRUNC(15.193,1) ¼Ò¼öÃ¹Â°, TRUNC(15.193) Á¤¼ö, TRUNC(15.193,2) ¼Ò¼öµÑÂ°
--- ¼Ò¼öÃ¹Â°ÀÚ¸®±îÁö Àı»è
+select TRUNC(15.193,1) ì†Œìˆ˜ì²«ì§¸, TRUNC(15.193) ì •ìˆ˜, TRUNC(15.193,2) ì†Œìˆ˜ë‘˜ì§¸
+-- ì†Œìˆ˜ì²«ì§¸ìë¦¬ê¹Œì§€ ì ˆì‚­
 from dual; 
 
--- mod´Â ³ª´« ³ª¸ÓÁö
--- Â¦¼ö¹øÂ° ¹øÈ£¸¦ °¡Áø Á÷¿øµé
-select employee_id Â¦¼ö¹øÈ£, last_name ÀÌ¸§
+-- modëŠ” ë‚˜ëˆˆ ë‚˜ë¨¸ì§€
+-- ì§ìˆ˜ë²ˆì§¸ ë²ˆí˜¸ë¥¼ ê°€ì§„ ì§ì›ë“¤
+select employee_id ì§ìˆ˜ë²ˆí˜¸, last_name ì´ë¦„
 from employees
 where MOD (employee_id, 2) = 0
-order by 1; //Ã¹¹øÂ°¿­·Î Á¤·Ä
+order by 1; //ì²«ë²ˆì§¸ì—´ë¡œ ì •ë ¬
 
-select SALARY ROUND(SALARY/30) Á¤¼ö,  ROUND (SALARY/30,1) ¼Ò¼öÃ¹Â°, ROUND(SALARY/30,10) 10ÀÇÀÚ¸®
+select SALARY ROUND(SALARY/30) ì •ìˆ˜,  ROUND (SALARY/30,1) ì†Œìˆ˜ì²«ì§¸, ROUND(SALARY/30,10) 10ì˜ìë¦¬
 from employees
 order by 1;
 
--- ³¯Â¥Çü ÇÔ¼ö  //sysdate=ÇöÀç³¯Â¥¿Í½Ã°£
-SELECT ROUND(sysdate, 'DD') ÀÏ, 
-              ROUND(sysdate, 'MM') ¿ù,
-              ROUND(sysdate, 'YYYY') ³âµµ,
-              MONTHS_BETWEEN('2017/10/10', '2017/07/10') ¿ùÂ÷ÀÌ,
-              ADD_MONTHS('2017/07/10', 3) ¾Öµå¸Õ¾²
+-- ë‚ ì§œí˜• í•¨ìˆ˜  //sysdate=í˜„ì¬ë‚ ì§œì™€ì‹œê°„
+SELECT ROUND(sysdate, 'DD') ì¼, 
+              ROUND(sysdate, 'MM') ì›”,
+              ROUND(sysdate, 'YYYY') ë…„ë„,
+              MONTHS_BETWEEN('2017/10/10', '2017/07/10') ì›”ì°¨ì´,
+              ADD_MONTHS('2017/07/10', 3) ì• ë“œë¨¼ì“°
 FROM dual;
 
--- ³¯Â¥¿¬»ê
-SELECT SYSDATE-1 ¾îÁ¦, SYSDATE ¿À´Ã, SYSDATE+1 ³»ÀÏ 
+-- ë‚ ì§œì—°ì‚°
+SELECT SYSDATE-1 ì–´ì œ, SYSDATE ì˜¤ëŠ˜, SYSDATE+1 ë‚´ì¼ 
 FROM DUAL;
 
--- 90¹ø ºÎ¼­ Á÷¿øµéÀÇ ±Ù¹«ÀÏÀÚ (¿À´Ã±îÁö)
-SELECT last_name, FLOOR(SYSDATE - hire_date) ±Ù¹«ÀÏ¼ö
+-- 90ë²ˆ ë¶€ì„œ ì§ì›ë“¤ì˜ ê·¼ë¬´ì¼ì (ì˜¤ëŠ˜ê¹Œì§€)
+SELECT last_name, FLOOR(SYSDATE - hire_date) ê·¼ë¬´ì¼ìˆ˜
 FROM employees
 WHERE department_id = 90;
 
---¿¹Á¦1)
+--ì˜ˆì œ1)
 SELECT SYSDATE,  hire_date,  MONTHS_BETWEEN(SYSDATE, hire_date)
 FROM employees
 WHERE department_id = 100;
 
- //¼Ò¼öÁ¡X
+ //ì†Œìˆ˜ì X
 SELECT SYSDATE,  hire_date,  FLOOR(MONTHS_BETWEEN(SYSDATE, hire_date))       
 FROM employees
 WHERE department_id = 100;
 
- //¼Ò¼öÁ¡1ÀÚ¸®
+ //ì†Œìˆ˜ì 1ìë¦¬
 SELECT SYSDATE,  hire_date, TRUNC(MONTHS_BETWEEN(SYSDATE, hire_date), 1)              
 FROM employees
 WHERE department_id = 100;
 
---¿¹Á¦2)
+--ì˜ˆì œ2)
 SELECT  hire_date,              
 FROM employees
 WHERE employee_id
 BETWEEN 100 AND 106;
 
 
--- º¯È¯Çü ÇÔ¼ö 
--- CHAR = CHARACTER ¹®ÀÚ
--- TO_CHAR ¼ıÀÚ¸¦ Çü½Ä¿¡ ¸Â°Ô ¹®ÀÚ¿­·Î Ç¥½Ã
+-- ë³€í™˜í˜• í•¨ìˆ˜ 
+-- CHAR = CHARACTER ë¬¸ì
+-- TO_CHAR ìˆ«ìë¥¼ í˜•ì‹ì— ë§ê²Œ ë¬¸ìì—´ë¡œ í‘œì‹œ
 SELECT 
-TO_CHAR(12345678, '999,999,999') ÄŞ¸¶,
-TO_CHAR(123.45678,'999,999,999.99') ¼Ò¼öÁ¡,
-TO_CHAR(123.45678, '$999,999,999.99') ´Ş·¯,
-TO_CHAR(12345678, 'L999,999,999') ¿øÈ­
+TO_CHAR(12345678, '999,999,999') ì½¤ë§ˆ,
+TO_CHAR(123.45678,'999,999,999.99') ì†Œìˆ˜ì ,
+TO_CHAR(123.45678, '$999,999,999.99') ë‹¬ëŸ¬,
+TO_CHAR(12345678, 'L999,999,999') ì›í™”
 FROM DUAL;
 
--- ³¯Â¥¸¦ ¹®ÀÚ¿­·Î º¯È¯
--- ³â, ¿ù, ÀÏ, ½Ã, ºĞ, ÃÊ ¿¹Á¦
-SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') ÇöÀç³¯Â¥½Ã°£
+-- ë‚ ì§œë¥¼ ë¬¸ìì—´ë¡œ ë³€í™˜
+-- ë…„, ì›”, ì¼, ì‹œ, ë¶„, ì´ˆ ì˜ˆì œ
+SELECT TO_CHAR(SYSDATE, 'YYYY-MM-DD HH24:MI:SS') í˜„ì¬ë‚ ì§œì‹œê°„
 FROM DUAL;
 
-SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') ÇöÀç³¯Â¥½Ã°£
+SELECT TO_CHAR(SYSDATE, 'YYYY/MM/DD HH24:MI:SS') í˜„ì¬ë‚ ì§œì‹œê°„
 FROM DUAL;
 
-SELECT TO_CHAR(SYSDATE, 'YYYY MM DD HH24:MI:SS') ÇöÀç³¯Â¥½Ã°£
+SELECT TO_CHAR(SYSDATE, 'YYYY MM DD HH24:MI:SS') í˜„ì¬ë‚ ì§œì‹œê°„
 FROM DUAL;
 
---¿¹Á¦ 1)
---SELECT EMPLOYEE_ID, TO_CHAR(SYSDATE, 'MM/YY') ÀÔ»ç¿ù
+--ì˜ˆì œ 1)
+--SELECT EMPLOYEE_ID, TO_CHAR(SYSDATE, 'MM/YY') ì…ì‚¬ì›”
 --from employees;
 --department_id=100;
-SELECT EMPLOYEE_ID, TO_CHAR(hire_date, 'MM/YY') ÀÔ»ç¿ù
+SELECT EMPLOYEE_ID, TO_CHAR(hire_date, 'MM/YY') ì…ì‚¬ì›”
 from employees;
 department_id=100;
 
 
---¿¹Á¦ 2)
---SELECT last_name ÀÌ¸§, TO_CHAR(salary>$10,000, '$999,999,999.99') ¿ù±Ş
+--ì˜ˆì œ 2)
+--SELECT last_name ì´ë¦„, TO_CHAR(salary>$10,000, '$999,999,999.99') ì›”ê¸‰
 --from employees;
-SELECT last_name ÀÌ¸§, TO_CHAR(salary, '$99,999.99') ¿ù±Ş  
+SELECT last_name ì´ë¦„, TO_CHAR(salary, '$99,999.99') ì›”ê¸‰  
 from employees WHERE salary>10000 ORDER BY salary DESC;
-//$99,999.99-¼ıÀÚ¿­À» ¹®ÀÚ¿­·Î ¹Ù²Û°Í 
-// 10,000(X)-¼ıÀÚÀÌ¹Ç·Î ÄŞ¸¶ ¾²¸é ¾ÈµÊ
+//$99,999.99-ìˆ«ìì—´ì„ ë¬¸ìì—´ë¡œ ë°”ê¾¼ê²ƒ 
+// 10,000(X)-ìˆ«ìì´ë¯€ë¡œ ì½¤ë§ˆ ì“°ë©´ ì•ˆë¨
 
--- ¹®ÀÚ¸¦ DATE Å¸ÀÔÀ¸·Î º¯È¯ÇÏ´Â ¿¹Á¦
+-- ë¬¸ìë¥¼ DATE íƒ€ì…ìœ¼ë¡œ ë³€í™˜í•˜ëŠ” ì˜ˆì œ
 SELECT TO_DATE('2011-01-01' , 'YYYY-MM-DD') 
 FROM DUAL;
 
--- ¹®ÀÚ¸¦ ¼ıÀÚ·Î º¯È¯ÇÏ´Â ¿¹Á¦
+-- ë¬¸ìë¥¼ ìˆ«ìë¡œ ë³€í™˜í•˜ëŠ” ì˜ˆì œ
 SELECT TO_NUMBER('012') 
 FROM DUAL;
 
 SELECT TO_NUMBER('012') +10
 FROM DUAL;
 
---³Î°ª °ü·Ã ÇÔ¼ö
---NVLÇÔ¼ö´Â null°ª ´ë½Å¿¡ °ªÀ» ¹Ù²ãÁÜ
-select last_name, NVL(manager_id, '¾øÀ½') ¸Å´ÏÀú
+--ë„ê°’ ê´€ë ¨ í•¨ìˆ˜
+--NVLí•¨ìˆ˜ëŠ” nullê°’ ëŒ€ì‹ ì— ê°’ì„ ë°”ê¿”ì¤Œ
+select last_name, NVL(manager_id, 'ì—†ìŒ') ë§¤ë‹ˆì €
 from employees where last_name = 'king';
 
-select last_name, NVL(manager_id, 0) ¸Å´ÏÀú
+select last_name, NVL(manager_id, 0) ë§¤ë‹ˆì €
 from employees where last_name = 'King';
 
---NVL2Àº ÇØ´ç¿­ÀÇ ³Î°ªÀÌ ¾Æ´Ò °æ¿ì¿Í ³Î°ªÀÎ °æ¿ì ¸ğµÎ °ªÀ» ¹Ù²ãÁÜ
-select last_name, NVL2(manager_id, 1, 0) ¸Å´ÏÀú
+--NVL2ì€ í•´ë‹¹ì—´ì˜ ë„ê°’ì´ ì•„ë‹ ê²½ìš°ì™€ ë„ê°’ì¸ ê²½ìš° ëª¨ë‘ ê°’ì„ ë°”ê¿”ì¤Œ
+select last_name, NVL2(manager_id, 1, 0) ë§¤ë‹ˆì €
 from employees where last_name = 'King';
 
 
-----¿¹Á¦1)
---select last_name ÀÌ¸§, salary ¿ù±Ş, commision_pct Ä¿¹Ì¼Ç,  NVL((salary*12) + (salary*12*commision))  ¿¬ºÀ
+----ì˜ˆì œ1)
+--select last_name ì´ë¦„, salary ì›”ê¸‰, commision_pct ì»¤ë¯¸ì…˜,  NVL((salary*12) + (salary*12*commision))  ì—°ë´‰
 --from employees
 
---¿¹Á¦1) Ä¿¹Ì¼ÇÀ» ³Î°ª ´ë½Å 0À¸·Î ¹Ù²ã¾ßÇÔ
-SELECT last_name ÀÌ¸§, salary ¿ù±Ş,  NVL(commission_pct , 0) Ä¿¹Ì¼Ç,
-            salary*12 + salary*12*NVL(commission_pct, 0)  ¿¬ºÀ
-FROM employees ORDER BY ¿¬ºÀ DESC;
+--ì˜ˆì œ1) ì»¤ë¯¸ì…˜ì„ ë„ê°’ ëŒ€ì‹  0ìœ¼ë¡œ ë°”ê¿”ì•¼í•¨
+SELECT last_name ì´ë¦„, salary ì›”ê¸‰,  NVL(commission_pct , 0) ì»¤ë¯¸ì…˜,
+            salary*12 + salary*12*NVL(commission_pct, 0)  ì—°ë´‰
+FROM employees ORDER BY ì—°ë´‰ DESC;
 
-----¿¹Á¦2)
---select last_name ÀÌ¸§, salary ¿ù±Ş, commision_pct Ä¿¹Ì¼Ç,  NVL2(salary*12, ((salary*12) + (salary*12*commision)))  ¿¬ºÀ
+----ì˜ˆì œ2)
+--select last_name ì´ë¦„, salary ì›”ê¸‰, commision_pct ì»¤ë¯¸ì…˜,  NVL2(salary*12, ((salary*12) + (salary*12*commision)))  ì—°ë´‰
 --from employees
 
---¿¹Á¦2) commission = Ä¿¹Ì¼Ç Ã¶ÀÚÀ¯ÀÇ
-SELECT last_name ÀÌ¸§, salary ¿ù±Ş,  NVL(commission_pct , 0) Ä¿¹Ì¼Ç,
-            salary*12 + salary*12*NVL(commission_pct, 0)  ¿¬ºÀ,
-            NVL2(commission_pct, '¿ù±Ş+Ä¿¹Ì¼Ç', '¿ù±Ş¸¸') ¿¬ºÀ°è»ê¹æ¹ı
-FROM employees ORDER BY ¿¬ºÀ DESC;
+--ì˜ˆì œ2) commission = ì»¤ë¯¸ì…˜ ì² ììœ ì˜
+SELECT last_name ì´ë¦„, salary ì›”ê¸‰,  NVL(commission_pct , 0) ì»¤ë¯¸ì…˜,
+            salary*12 + salary*12*NVL(commission_pct, 0)  ì—°ë´‰,
+            NVL2(commission_pct, 'ì›”ê¸‰+ì»¤ë¯¸ì…˜', 'ì›”ê¸‰ë§Œ') ì—°ë´‰ê³„ì‚°ë°©ë²•
+FROM employees ORDER BY ì—°ë´‰ DESC;
 
 
--- decode ÇÔ¼ö
-SELECT last_name ÀÌ¸§, job_id, salary,
+-- decode í•¨ìˆ˜
+SELECT last_name ì´ë¦„, job_id, salary,
       DECODE(job_id, 'IT_PROG', salary * 1.10,
                              'ST_CLERK', salary * 1.15,
                                 'SA_REP', salary * 1.20,
-                                              salary) "¼öÁ¤¿ù±Ş"
+                                              salary) "ìˆ˜ì •ì›”ê¸‰"
  FROM employees;
---job_id°¡ IT_PROG¿Í °°À¸¸é salary¸¸Å­ Ãâ·Â
+--job_idê°€ IT_PROGì™€ ê°™ìœ¼ë©´ salaryë§Œí¼ ì¶œë ¥
 
---¿¹Á¦) ¿ù±Ş¿¡ µû¸¥ ¼¼À² ³ªÅ¸³»±â
---SELECT last_name ÀÌ¸§, Á÷¹«, salary ¿ù±Ş, tax rate ¼¼À²
+--ì˜ˆì œ) ì›”ê¸‰ì— ë”°ë¥¸ ì„¸ìœ¨ ë‚˜íƒ€ë‚´ê¸°
+--SELECT last_name ì´ë¦„, ì§ë¬´, salary ì›”ê¸‰, tax rate ì„¸ìœ¨
 --  DECODE('TRUNC (salary/2000)', 0, salary,
 --                                                 1, salary*0.09,
 --                                                 2, salary*0.2,
@@ -187,10 +187,10 @@ SELECT last_name ÀÌ¸§, job_id, salary,
 --                                                 5, salary*0.42,
 --                                                 6, salary*0.44,
 --                                                 7, salary*0.45,
---                                                 Tax Rate) "¼¼À²"
+--                                                 Tax Rate) "ì„¸ìœ¨"
 --FROM employees;
 
-SELECT last_name ÀÌ¸§, job_id Á÷¹«, salary ¿ù±Ş,
+SELECT last_name ì´ë¦„, job_id ì§ë¬´, salary ì›”ê¸‰,
   DECODE( TRUNC (salary/2000),  0, 0,
                                                  1, 0.09,
                                                  2, 0.2,
@@ -198,38 +198,38 @@ SELECT last_name ÀÌ¸§, job_id Á÷¹«, salary ¿ù±Ş,
                                                  4, 0.4,
                                                  5, 0.42,
                                                  6, 0.44,
-                                                     0.45 ) "¼¼À²"
+                                                     0.45 ) "ì„¸ìœ¨"
 FROM employees;
 
 
 
--- CASE ¹®Àº ºñ±³ °¡´É
-SELECT last_name ÀÌ¸§, job_id Á÷¹«, salary ¿ù±Ş,
+-- CASE ë¬¸ì€ ë¹„êµ ê°€ëŠ¥
+SELECT last_name ì´ë¦„, job_id ì§ë¬´, salary ì›”ê¸‰,
           CASE  WHEN salary<5000 THEN 'Low'
                     WHEN salary<10000 THEN 'Medium'
                     WHEN salary<20000 THEN 'Good'
                      ELSE                                ' Excellent'
-    END "±Ş¿© ¼öÁØ"
+    END "ê¸‰ì—¬ ìˆ˜ì¤€"
 FROM employees;
 
 
 
---¿¹Á¦)
---SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY ¿ù±Ş,
---    CASE  WHEN salary>9000 THEN '»óÀ§'
---                    WHEN 6000<salary THEN 'ÁßÀ§'
---                    WHEN salary<8999 THEN 'ÁßÀ§'
+--ì˜ˆì œ)
+--SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY ì›”ê¸‰,
+--    CASE  WHEN salary>9000 THEN 'ìƒìœ„'
+--                    WHEN 6000<salary THEN 'ì¤‘ìœ„'
+--                    WHEN salary<8999 THEN 'ì¤‘ìœ„'
 --                    
---                     ELSE                                        'ÇÏÀ§'
---    END "±Ş¿© µî±Ş"
+--                     ELSE                                        'í•˜ìœ„'
+--    END "ê¸‰ì—¬ ë“±ê¸‰"
 --FROM employees WHERE
 
-SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY ¿ù±Ş,
-    CASE  WHEN salary>=9000          THEN '»óÀ§'
-                    WHEN salary>6000   THEN 'ÁßÀ§'
-                    WHEN salary<8999      THEN 'ÁßÀ§'              
-                     ELSE                                    'ÇÏÀ§'
-    END "±Ş¿© µî±Ş"
+SELECT EMPLOYEE_ID, FIRST_NAME, LAST_NAME, SALARY ì›”ê¸‰,
+    CASE  WHEN salary>=9000          THEN 'ìƒìœ„'
+                    WHEN salary>6000   THEN 'ì¤‘ìœ„'
+                    WHEN salary<8999      THEN 'ì¤‘ìœ„'              
+                     ELSE                                    'í•˜ìœ„'
+    END "ê¸‰ì—¬ ë“±ê¸‰"
 FROM employees WHERE job_id = 'IT_PROG';
 
 
