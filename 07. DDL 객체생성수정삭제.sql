@@ -111,10 +111,13 @@ INSERT INTO 직원 VALUES(2,'펭수',2);
 
 
 --- CREATE TABLE AS
+DROP TABLE emp_temp;
 CREATE TABLE emp_temp
 AS
-select * from emp;
+select * from emp where 1!=1; -- where절 조건에 만족하는 데이터가 없음
+// // 서브쿼리 select문의 결과가 emp_temp 생성
 
+select * from emp _temp; -- 조건에 참이 되는 데이터가 없으므로 열만 복사
 
 .
 
