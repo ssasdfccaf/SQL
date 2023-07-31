@@ -1,8 +1,8 @@
--- ÇöÀç ³¯Â¥¸¦ Ç¥½ÃÇÑ´Ù
+-- í˜„ì¬ ë‚ ì§œë¥¼ í‘œì‹œí•œë‹¤
 SELECT sysdate from dual;
--- HR°èÁ¤À» ¾ğ¶ôÇÏ°í ºñ¹Ğ¹øÈ£¸¦ 1234·Î ¼öÁ¤
+-- HRê³„ì •ì„ ì–¸ë½í•˜ê³  ë¹„ë°€ë²ˆí˜¸ë¥¼ 1234ë¡œ ìˆ˜ì •
 alter user HR account unlock identified by 1234;
--- scott.sqlÀ» ½ÇÇà(¿¬½À¿ë scott°èÁ¤À» »ç¿ëÇÏ±â À§ÇÔ)
+-- scott.sqlì„ ì‹¤í–‰(ì—°ìŠµìš© scottê³„ì •ì„ ì‚¬ìš©í•˜ê¸° ìœ„í•¨)
 @C:/oraclexe/app/oracle/product/11.2.0/server/rdbms/admin/scott.sql
--- scott °èÁ¤ÀÇ ºñ¹øÀ» 1234·Î ¼öÁ¤
+-- scott ê³„ì •ì˜ ë¹„ë²ˆì„ 1234ë¡œ ìˆ˜ì •
 alter user scott identified by 1234;

@@ -1,22 +1,22 @@
--- ROWNUM µ¥ÀÌÅÍÀÇ ÀÏ·Ã¹øÈ£
+-- ROWNUM ë°ì´í„°ì˜ ì¼ë ¨ë²ˆí˜¸
 select ROWNUM, members.*
 from members where ROWNUM <=5 ;
--- 6¹øºÎÅÍ 10¹ø±îÁö? (·Î¿ì³ÑÀº 1¹øºÎÅÍ ÀÓ½Ã·Î ¹øÈ£¸¦ ¸Å±â´Â°Å¶ó ´Ù¸¥ Á¶°ÇÀ¸·Î´Â °Ë»ö¾ÈµÊ)
+-- 6ë²ˆë¶€í„° 10ë²ˆê¹Œì§€? (ë¡œìš°ë„˜ì€ 1ë²ˆë¶€í„° ìž„ì‹œë¡œ ë²ˆí˜¸ë¥¼ ë§¤ê¸°ëŠ”ê±°ë¼ ë‹¤ë¥¸ ì¡°ê±´ìœ¼ë¡œëŠ” ê²€ìƒ‰ì•ˆë¨)
 select ROWNUM, members.*
 from members where ROWNUM BETWEEN 6 AND 10;
-//·Î¿ì³Ñ¿­ -> ÀÏ·Ã¹øÈ£ »ý¼º (ÀÏ·Ã¹øÈ£ Áß 5°³±îÁö¸¸)
+//ë¡œìš°ë„˜ì—´ -> ì¼ë ¨ë²ˆí˜¸ ìƒì„± (ì¼ë ¨ë²ˆí˜¸ ì¤‘ 5ê°œê¹Œì§€ë§Œ)
 
 
---Å×ÀÌºí¿¡ ¼­ºêÄõ¸®·Î ÀÔ·Â½Ã ÀÓ½Ã¹øÈ£ ROWNUMÀÌ ÀÖ´Â Å×ÀÌºí
+--í…Œì´ë¸”ì— ì„œë¸Œì¿¼ë¦¬ë¡œ ìž…ë ¥ì‹œ ìž„ì‹œë²ˆí˜¸ ROWNUMì´ ìžˆëŠ” í…Œì´ë¸”
 SELECT * FROM (select ROWNUM AS RN,members.* from members) 
 WHERE RN BETWEEN 6 AND 10;
-//RN º°Äª
+//RN ë³„ì¹­
 
--- Á¤·Ä(order by) ÀÌÀü¿¡ ROWNUM ¹øÈ£¸¦ ¸Å±â±â ¶§¹®¿¡
+-- ì •ë ¬(order by) ì´ì „ì— ROWNUM ë²ˆí˜¸ë¥¼ ë§¤ê¸°ê¸° ë•Œë¬¸ì—
 SELECT ROWNUM, MEMBERS.*
 FROM MEMBERS
 WHERE ROWNUM <= 5 ORDER BY FIRST_NAME;
--- Á¤·ÄÇÑ Å×ÀÌºíÀ» ¼­ºêÄõ¸®¿¡ ³ÖÀº ´ÙÀ½¿¡ ·Î¿ì³ÑÀ¸·Î ¹øÈ£
+-- ì •ë ¬í•œ í…Œì´ë¸”ì„ ì„œë¸Œì¿¼ë¦¬ì— ë„£ì€ ë‹¤ìŒì— ë¡œìš°ë„˜ìœ¼ë¡œ ë²ˆí˜¸
 SELECT ROWNUM, A.*
 FROM (
     SELECT MEMBER_ID, FIRST_NAME FROM MEMBERS ORDER BY FIRST_NAME

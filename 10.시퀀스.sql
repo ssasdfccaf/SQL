@@ -1,40 +1,38 @@
----- ½ÃÄö½º
---À¯ÀÏÇÑ ±âº»Å° PRIMARY KEY °ª µ¶¸³Àû ÀúÀå ¹× »ý¼ºÇØÁÖ´Â ¿À¶óÅ¬ °´Ã¼
+---- ì‹œí€€ìŠ¤
+--ìœ ì¼í•œ ê¸°ë³¸í‚¤ PRIMARY KEY ê°’ ë…ë¦½ì  ì €ìž¥ ë° ìƒì„±í•´ì£¼ëŠ” ì˜¤ë¼í´ ê°ì²´
 
-CREATE SEQUENCE ½ÃÄö½º1; -- »ý¼º(¿É¼Ç ¾øÀÌ)
-CREATE SEQUENCE ½ÃÄö½º2
+CREATE SEQUENCE ì‹œí€€ìŠ¤1; -- ìƒì„±(ì˜µì…˜ ì—†ì´)
+CREATE SEQUENCE ì‹œí€€ìŠ¤2
 start with 1000
-INCREMENT by 10; --1000¹øºÎÅÍ ½ÃÀÛ, 10¾¿ Áõ°¡ÇÏ´Â ½ÃÄö½º2
+INCREMENT by 10; --1000ë²ˆë¶€í„° ì‹œìž‘, 10ì”© ì¦ê°€í•˜ëŠ” ì‹œí€€ìŠ¤2
 
 select * from user_sequences
-where sequence_name = '½ÃÄö½º1';
+where sequence_name = 'ì‹œí€€ìŠ¤1';
 
--- Å×ÀÌºí¿¡ ÀÔ·Â½Ã ½ÃÄö½º »ç¿ë¹æ¹ý
-DROP TABLE ºÎ¼­;
-CREATE TABLE ºÎ¼­ (
-    ¹øÈ£ number primary key,
-    ÀÌ¸§ VARCHAR2(100)
+-- í…Œì´ë¸”ì— ìž…ë ¥ì‹œ ì‹œí€€ìŠ¤ ì‚¬ìš©ë°©ë²•
+DROP TABLE ë¶€ì„œ;
+CREATE TABLE ë¶€ì„œ (
+    ë²ˆí˜¸ number primary key,
+    ì´ë¦„ VARCHAR2(100)
     );
     
-INSERT INTO ºÎ¼­ VALUES(½ÃÄö½º2.NEXTVAL, '¿µ¾÷ºÎ');
-INSERT INTO ºÎ¼­ VALUES(½ÃÄö½º2.NEXTVAL, '°³¹ßºÎ');
-INSERT INTO ºÎ¼­ VALUES(½ÃÄö½º2.NEXTVAL, 'È¸°èºÎ');
-INSERT INTO ºÎ¼­ VALUES(½ÃÄö½º2.NEXTVAL, '°æ¿µºÎ');
-select * from ºÎ¼­;
+INSERT INTO ë¶€ì„œ VALUES(ì‹œí€€ìŠ¤2.NEXTVAL, 'ì˜ì—…ë¶€');
+INSERT INTO ë¶€ì„œ VALUES(ì‹œí€€ìŠ¤2.NEXTVAL, 'ê°œë°œë¶€');
+INSERT INTO ë¶€ì„œ VALUES(ì‹œí€€ìŠ¤2.NEXTVAL, 'íšŒê³„ë¶€');
+INSERT INTO ë¶€ì„œ VALUES(ì‹œí€€ìŠ¤2.NEXTVAL, 'ê²½ì˜ë¶€');
+select * from ë¶€ì„œ;
 
--- ½ÃÄö½ºÀÇ ÇöÀç°ª È®ÀÎ CURRVAL
-select ½ÃÄö½º1.currval from dual;
-select ½ÃÄö½º2.currval from dual;
-
-
--- ½ÃÄö½ºÀÇ »èÁ¦ DROP
-DROP SEQUENCE ½ÃÄö½º1;
-DROP SEQUENCE ½ÃÄö½º2;
-
-update_ºÎ¼­
-set ¹øÈ£ = ½ÃÄö½º1.NEXTVAL;
-select * from ºÎ¼­;
+-- ì‹œí€€ìŠ¤ì˜ í˜„ìž¬ê°’ í™•ì¸ CURRVAL
+select ì‹œí€€ìŠ¤1.currval from dual;
+select ì‹œí€€ìŠ¤2.currval from dual;
 
 
+-- ì‹œí€€ìŠ¤ì˜ ì‚­ì œ DROP
+DROP SEQUENCE ì‹œí€€ìŠ¤1;
+DROP SEQUENCE ì‹œí€€ìŠ¤2;
+
+update_ë¶€ì„œ
+set ë²ˆí˜¸ = ì‹œí€€ìŠ¤1.NEXTVAL;
+select * from ë¶€ì„œ;
 
 

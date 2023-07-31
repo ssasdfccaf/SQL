@@ -1,8 +1,8 @@
--- Á÷¿øÅ×ÀÌºíÀÇ ÀÎµ¦½º ¸ðÀ½
+-- ì§ì›í…Œì´ë¸”ì˜ ì¸ë±ìŠ¤ ëª¨ìŒ
 SELECT
-    TABLE_NAME Å×ÀÌºí¸í,
-    INDEX_NAME ÀÎµ¦½ºÀÌ¸§,
-    COLUMN_NAME ÄÃ·³ÀÌ¸§
+    TABLE_NAME í…Œì´ë¸”ëª…,
+    INDEX_NAME ì¸ë±ìŠ¤ì´ë¦„,
+    COLUMN_NAME ì»¬ëŸ¼ì´ë¦„
 FROM ALL_IND_COLUMNS
 WHERE TABLE_NAME = 'EMPLOYEES';
 
@@ -11,9 +11,9 @@ WHERE TABLE_NAME = 'EMPLOYEES';
 --EMP_MANAGER_IX
 --EMP_NAME_IX
 --EMP_NAME_IX
---À§´Â ´Ù¸¥ Å×ÀÌºí¿¡ ÀÖ´Â Å°ÀÌ¹Ç·Î ÀÚµ¿À¸·Î INDEX
+--ìœ„ëŠ” ë‹¤ë¥¸ í…Œì´ë¸”ì— ìžˆëŠ” í‚¤ì´ë¯€ë¡œ ìžë™ìœ¼ë¡œ INDEX
 
---±âº»Å°, À¯´ÏÅ© ¿­Àº ÀÚµ¿À¸·Î ÀÎµ¦½º°¡ »ý¼ºµÊ ¶ÇÇÑ ±âº»Å°¸¦ ÂüÁ¶ÇÏ´Â ¿Ü·¡Å°µµ ÀÎµ¦½º°¡ ÀÖÀ½
+--ê¸°ë³¸í‚¤, ìœ ë‹ˆí¬ ì—´ì€ ìžë™ìœ¼ë¡œ ì¸ë±ìŠ¤ê°€ ìƒì„±ë¨ ë˜í•œ ê¸°ë³¸í‚¤ë¥¼ ì°¸ì¡°í•˜ëŠ” ì™¸ëž˜í‚¤ë„ ì¸ë±ìŠ¤ê°€ ìžˆìŒ
 
 CREATE TABLE members(
     member_id NUMBER,
@@ -22,14 +22,14 @@ CREATE TABLE members(
     gender CHAR(1) NOT NULL,
     dob DATE NOT NULL,
     email VARCHAR2(255) NOT NULL,
-    PRIMARY KEY(member_id) --Á¦¾àÁ¶°ÇÀ» ¾Æ·¡ÀÇ Çà¿¡ µû·Î ³ÖÀ» ¶§ °ýÈ£ ¾È¿¡ ¿­ÀÇ ÀÌ¸§ ÀÔ·Â
+    PRIMARY KEY(member_id) --ì œì•½ì¡°ê±´ì„ ì•„ëž˜ì˜ í–‰ì— ë”°ë¡œ ë„£ì„ ë•Œ ê´„í˜¸ ì•ˆì— ì—´ì˜ ì´ë¦„ ìž…ë ¥
 );
 SELECT
-    TABLE_NAME Å×ÀÌºí¸í,
-    INDEX_NAME ÀÎµ¦½ºÀÌ¸§,
-    COLUMN_NAME ÄÃ·³ÀÌ¸§
+    TABLE_NAME í…Œì´ë¸”ëª…,
+    INDEX_NAME ì¸ë±ìŠ¤ì´ë¦„,
+    COLUMN_NAME ì»¬ëŸ¼ì´ë¦„
 FROM ALL_IND_COLUMNS
-WHERE TABLE_NAME = 'MEMBERS'; --Å×ÀÌºí¸íÀº ´ë¹®ÀÚ
+WHERE TABLE_NAME = 'MEMBERS'; --í…Œì´ë¸”ëª…ì€ ëŒ€ë¬¸ìž
 
 select * from members
 where last_name = 'Harse';
@@ -37,18 +37,18 @@ where last_name = 'Harse';
 EXPLAIN PLAN FOR
  select * from members
  where last_name = 'Harse';
--- º¸°í¼­ È®ÀÎ
+-- ë³´ê³ ì„œ í™•ì¸
 SELECT
         PLAN_TABLE_OUTPUT
 FROM
         TABLE(DBMS_XPLAN.DISPLAY());
 
--- ÀÎµ¦½º ¸¸µé±â ¸â¹öÁî Å×ÀÌºíÀÇ last_name¿­, ÀÌ¸§Àº members_last_name_i
+-- ì¸ë±ìŠ¤ ë§Œë“¤ê¸° ë©¤ë²„ì¦ˆ í…Œì´ë¸”ì˜ last_nameì—´, ì´ë¦„ì€ members_last_name_i
 CREATE INDEX members_last_name_i
 ON members(last_name);
 
--- ÀÎµ¦½º »èÁ¦ (ÀÎµ¦½º´Â Å×ÀÌºí »èÁ¦½Ã ÀÚµ¿»èÁ¦µÊ)
-// // ÀÎµ¦½º´Â Å×ÀÌºíÀÌ drop/»èÁ¦ ½Ã °°ÀÌ »èÁ¦
+-- ì¸ë±ìŠ¤ ì‚­ì œ (ì¸ë±ìŠ¤ëŠ” í…Œì´ë¸” ì‚­ì œì‹œ ìžë™ì‚­ì œë¨)
+// // ì¸ë±ìŠ¤ëŠ” í…Œì´ë¸”ì´ drop/ì‚­ì œ ì‹œ ê°™ì´ ì‚­ì œ
 DROP INDEX MEMBERS_LAST_NAME_I;
 
 

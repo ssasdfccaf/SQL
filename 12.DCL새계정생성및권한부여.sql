@@ -1,13 +1,13 @@
--- »õ °èÁ¤À» »ý¼ºÇÏ·Á¸é ÀÏ¹Ý °èÁ¤¿¡¼­ ÀÛ¾÷X, °ü¸®ÀÚ °èÁ¤¿¡¼­ °¡´É
-CREATE USER john IDENTIFIED BY 1234; --ºñ¹ø 1234Á¸°èÁ¤À» »ý¼º
+-- ìƒˆ ê³„ì •ì„ ìƒì„±í•˜ë ¤ë©´ ì¼ë°˜ ê³„ì •ì—ì„œ ìž‘ì—…X, ê´€ë¦¬ìž ê³„ì •ì—ì„œ ê°€ëŠ¥
+CREATE USER john IDENTIFIED BY 1234; --ë¹„ë²ˆ 1234ì¡´ê³„ì •ì„ ìƒì„±
 
-- Á¢¼Ó±ÇÇÑ ¹× »ç¿ë±ÇÇÑµéÀ» ¸ð¾Æ¼­ ÇÑ²¨¹ø¿¡ CONNECT, RESOURCE ·ÑÀ» ºÎ¿©
+- ì ‘ì†ê¶Œí•œ ë° ì‚¬ìš©ê¶Œí•œë“¤ì„ ëª¨ì•„ì„œ í•œêº¼ë²ˆì— CONNECT, RESOURCE ë¡¤ì„ ë¶€ì—¬
 GRANT CONNECT, RESOURCE TO john;
-//½Ã½ºÅÛ ±ÇÇÑ, ¿ÀºêÁ§Æ® ±ÇÇÑ
+//ì‹œìŠ¤í…œ ê¶Œí•œ, ì˜¤ë¸Œì íŠ¸ ê¶Œí•œ
 
--- ±ÇÇÑ Á¦°Å
+-- ê¶Œí•œ ì œê±°
 REVOKE RESOURCE FROM john;
 REVOKE CONNECT FROM john;
 
--- °èÁ¤ »èÁ¦(°èÁ¤°ú °ü°èµÈ ¸ðµç µ¥ÀÌÅÍ »èÁ¦)
+-- ê³„ì • ì‚­ì œ(ê³„ì •ê³¼ ê´€ê³„ëœ ëª¨ë“  ë°ì´í„° ì‚­ì œ)
 DROP USER john CASCADE;

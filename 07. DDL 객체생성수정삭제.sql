@@ -1,34 +1,34 @@
--- Å×ÀÌºí ¸¸µé±â
+-- í…Œì´ë¸” ë§Œë“¤ê¸°
 DROP TABLE comp;
 CREATE TABLE comp (
-    °íÁ¤¿­ CHAR(10),
-    °¡º¯¿­ VARCHAR2(10)
+    ê³ ì •ì—´ CHAR(10),
+    ê°€ë³€ì—´ VARCHAR2(10)
 );
 DESC comp;
-INSERT INTO comp VALUES('1', 'ÇÏ³ª');
-INSERT INTO comp VALUES('2', 'µÑ');
-INSERT INTO comp VALUES('3', '¼Â');
+INSERT INTO comp VALUES('1', 'í•˜ë‚˜');
+INSERT INTO comp VALUES('2', 'ë‘˜');
+INSERT INTO comp VALUES('3', 'ì…‹');
 select * from comp;
 
---¼ýÀÚ¿Í ³¯Â¥ Å×ÀÌºí
+--ìˆ«ìžì™€ ë‚ ì§œ í…Œì´ë¸”
 CREATE TABLE ex_date(
     id NUMBER(2),
     start_date DATE DEFAULT SYSDATE
 );
 
 DESC ex_date;
--- µðÆúÆ®°ªDEFAULT SYSDATEÀº ÇØ´ç¿­¿¡ °ªÀ» ÀÔ·ÂÇÏÁö ¾Ê¾ÒÀ» ¶§ »ý¼º
+-- ë””í´íŠ¸ê°’DEFAULT SYSDATEì€ í•´ë‹¹ì—´ì— ê°’ì„ ìž…ë ¥í•˜ì§€ ì•Šì•˜ì„ ë•Œ ìƒì„±
 INSERT INTO ex_date(id) VALUES(10);
 INSERT INTO ex_date(id) VALUES(11);
 INSERT INTO ex_date(id) VALUES(12);
 select * from ex_date;
 
-//·Ñ¹é´©¸£¸é Å×ÀÌºí¸¸ ³²¾ÆÀÖ°í ÀÔ·Â³»¿ë »ç¶óÁü
+//ë¡¤ë°±ëˆ„ë¥´ë©´ í…Œì´ë¸”ë§Œ ë‚¨ì•„ìžˆê³  ìž…ë ¥ë‚´ìš© ì‚¬ë¼ì§
 
 DROP TABLE comp;
 DROP TABLE ex_date;
 
----- ¿¹Á¦1)
+---- ì˜ˆì œ1)
 --CREATE TABLE sample_product(
 --    CHAR(10),
 --    product_name VARCHAR2(20)
@@ -36,41 +36,41 @@ DROP TABLE ex_date;
 --    id NUMBER(product_id),
 --    menu_date DATE DEFAULT SYSDATE
 --    
----- ¿¹Á¦2)
+---- ì˜ˆì œ2)
 --DROP TABLE sample_product;
 
--- Å×ÀÌºí Á¦¾àÁ¶°Ç 
--- : Áßº¹X, Àß¸øµÈ Æ®·£Àè¼ÇX
-// // Å×ÀÌºí¿­ ¿· ¶Ç´Â ´Ù¸¥ Çà¿¡ ÀÔ·Â
+-- í…Œì´ë¸” ì œì•½ì¡°ê±´ 
+-- : ì¤‘ë³µX, ìž˜ëª»ëœ íŠ¸ëžœìž­ì…˜X
+// // í…Œì´ë¸”ì—´ ì˜† ë˜ëŠ” ë‹¤ë¥¸ í–‰ì— ìž…ë ¥
 CREATE TABLE emp1 (
-    id number(3) PRIMARY KEY, --±âº»Å° ¼³Á¤
+    id number(3) PRIMARY KEY, --ê¸°ë³¸í‚¤ ì„¤ì •
     name VARCHAR2(20)
 );
 --
 --DESC emp1;
---INSERT INTO empl VALUES( 1, '±æµ¿');
---INSERT INTO empl VALUES( 1, 'Æë¼ö'); --±âº»Å°´Â Áßº¹¾ÈµÊ
+--INSERT INTO empl VALUES( 1, 'ê¸¸ë™');
+--INSERT INTO empl VALUES( 1, 'íŽ­ìˆ˜'); --ê¸°ë³¸í‚¤ëŠ” ì¤‘ë³µì•ˆë¨
 --
 --DESC emp1;
---INSERT INTO empl VALUES( 1, '±æµ¿');
---INSERT INTO empl VALUES( null, 'Æë¼ö'); --±âº»Å°´Â ³Î°ª ÀÔ·Â¾ÈµÊ
+--INSERT INTO empl VALUES( 1, 'ê¸¸ë™');
+--INSERT INTO empl VALUES( null, 'íŽ­ìˆ˜'); --ê¸°ë³¸í‚¤ëŠ” ë„ê°’ ìž…ë ¥ì•ˆë¨
 --
 
-//NOT NULL Á¦¾àÁ¶°Ç
+//NOT NULL ì œì•½ì¡°ê±´
 CREATE TABLE emp1 (
-    id number(3) PRIMARY KEY, --±âº»Å° 
-    name VARCHAR2(20) NOT NULL --³Î°ªÀ» ÀÔ·ÂÇÒ¼ö¾øÀ½
-    sal NUMBER CHECK(sal>1000) --Ã¼Å©´Â Á¶°ÇÀ» ÀÔ·Â
+    id number(3) PRIMARY KEY, --ê¸°ë³¸í‚¤ 
+    name VARCHAR2(20) NOT NULL --ë„ê°’ì„ ìž…ë ¥í• ìˆ˜ì—†ìŒ
+    sal NUMBER CHECK(sal>1000) --ì²´í¬ëŠ” ì¡°ê±´ì„ ìž…ë ¥
     );
-//sal(Á¶°Ç) 
+//sal(ì¡°ê±´) 
 
 DESC emp1;
-INSERT INTO empl VALUES( 1, '±æµ¿', 1001);
-INSERT INTO empl VALUES( 1, 'Æë¼ö', 2000);
+INSERT INTO empl VALUES( 1, 'ê¸¸ë™', 1001);
+INSERT INTO empl VALUES( 1, 'íŽ­ìˆ˜', 2000);
 
 
--- ¿¹Á¦) #
--- : members¶ó´Â »õ Å×ÀÌºí ¸¸µé±â
+-- ì˜ˆì œ) #
+-- : membersë¼ëŠ” ìƒˆ í…Œì´ë¸” ë§Œë“¤ê¸°
 CREATE TABLE members(
     id number(2) PRIMARY KEY,
     first_name VARCHAR2(50) NOT NULL,
@@ -81,29 +81,29 @@ CREATE TABLE members(
 );
 
 
--- ¿Ü·¡Å° ¼³Á¤
--- : ÇÑ¿­°ú ÂüÁ¶µÈ Å×ÀÌºíÀÇ ¿­°£ÀÇ ¿Ü·¡Å° °ü°è ¼³Á¤
+-- ì™¸ëž˜í‚¤ ì„¤ì •
+-- : í•œì—´ê³¼ ì°¸ì¡°ëœ í…Œì´ë¸”ì˜ ì—´ê°„ì˜ ì™¸ëž˜í‚¤ ê´€ê³„ ì„¤ì •
 
 
-DESC ºÎ¼­;
-INSERT INTO ºÎ¼­ VALUES(1,'°æ¿µ');
-INSERT INTO ºÎ¼­ VALUES(2,'°³¹ß');
+DESC ë¶€ì„œ;
+INSERT INTO ë¶€ì„œ VALUES(1,'ê²½ì˜');
+INSERT INTO ë¶€ì„œ VALUES(2,'ê°œë°œ');
 
-DESC Á÷¿ø;
-INSERT INTO Á÷¿ø VALUES(1,'È«±æµ¿',1);
-INSERT INTO Á÷¿ø VALUES(2,'Æë¼ö',2);
+DESC ì§ì›;
+INSERT INTO ì§ì› VALUES(1,'í™ê¸¸ë™',1);
+INSERT INTO ì§ì› VALUES(2,'íŽ­ìˆ˜',2);
 
 
---//1¹ø ºÎ¼­¸¦ »èÁ¦ÇÏ°í ½ÍÀ¸¸é
---DELETE FROM ºÎ¼­ WHERE ¹øÈ£ = 1;
-DESC ºÎ¼­;
-INSERT INTO ºÎ¼­ VALUES(1,'°æ¿µ');
-INSERT INTO ºÎ¼­ VALUES(2,'°³¹ß');
-DELETE FROM ºÎ¼­ WHERE ¹øÈ£ = 1;
+--//1ë²ˆ ë¶€ì„œë¥¼ ì‚­ì œí•˜ê³  ì‹¶ìœ¼ë©´
+--DELETE FROM ë¶€ì„œ WHERE ë²ˆí˜¸ = 1;
+DESC ë¶€ì„œ;
+INSERT INTO ë¶€ì„œ VALUES(1,'ê²½ì˜');
+INSERT INTO ë¶€ì„œ VALUES(2,'ê°œë°œ');
+DELETE FROM ë¶€ì„œ WHERE ë²ˆí˜¸ = 1;
 
-DESC Á÷¿ø;
-INSERT INTO Á÷¿ø VALUES(1,'È«±æµ¿',1);
-INSERT INTO Á÷¿ø VALUES(2,'Æë¼ö',2);
+DESC ì§ì›;
+INSERT INTO ì§ì› VALUES(1,'í™ê¸¸ë™',1);
+INSERT INTO ì§ì› VALUES(2,'íŽ­ìˆ˜',2);
 
 
 --FOREIGN KEY
@@ -114,12 +114,38 @@ INSERT INTO Á÷¿ø VALUES(2,'Æë¼ö',2);
 DROP TABLE emp_temp;
 CREATE TABLE emp_temp
 AS
-select * from emp where 1!=1; -- whereÀý Á¶°Ç¿¡ ¸¸Á·ÇÏ´Â µ¥ÀÌÅÍ°¡ ¾øÀ½
-// // ¼­ºêÄõ¸® select¹®ÀÇ °á°ú°¡ emp_temp »ý¼º
+select * from emp where 1!=1; -- whereì ˆ ì¡°ê±´ì— ë§Œì¡±í•˜ëŠ” ë°ì´í„°ê°€ ì—†ìŒ
+// // ì„œë¸Œì¿¼ë¦¬ selectë¬¸ì˜ ê²°ê³¼ê°€ emp_temp ìƒì„±
 
-select * from emp _temp; -- Á¶°Ç¿¡ ÂüÀÌ µÇ´Â µ¥ÀÌÅÍ°¡ ¾øÀ¸¹Ç·Î ¿­¸¸ º¹»ç
+select * from emp _temp; -- ì¡°ê±´ì— ì°¸ì´ ë˜ëŠ” ë°ì´í„°ê°€ ì—†ìœ¼ë¯€ë¡œ ì—´ë§Œ ë³µì‚¬
 
 .
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

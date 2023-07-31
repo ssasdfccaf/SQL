@@ -1,22 +1,22 @@
---- ºä view  °¡»óÀÇ Å×ÀÌºí
+--- ë·° view  ê°€ìƒì˜ í…Œì´ë¸”
 CREATE VIEW EMP_V2
 AS
-select employee_id Á÷¿ø¹øÈ£, first_name ÀÌ¸§, last_name ¼º, email, hire_date, job_id
+select employee_id ì§ì›ë²ˆí˜¸, first_name ì´ë¦„, last_name ì„±, email, hire_date, job_id
 from employees;
 
 select * from emp_v2;
-INSERT INTO emp_v2 VALUES(207, '±æµ¿', 'È«', 'HONG', '2023-7-31', 'IT_PROG');
--- ºä´Â ½ÇÁ¦ ¹°¸®ÀûÀÎ Å×ÀÌºíÀÌ ¾Æ´Ñµ¥ ÀÔ·ÂÀ» ÇßÀ½ -> ½ÇÁ¦·Î ºä¸¦ ¸¸µç Å×ÀÌºí¿¡ ÀÔ·ÂµÊ!
-Delete from emp_v2 where Á÷¿ø¹øÈ£ = 207;
+INSERT INTO emp_v2 VALUES(207, 'ê¸¸ë™', 'í™', 'HONG', '2023-7-31', 'IT_PROG');
+-- ë·°ëŠ” ì‹¤ì œ ë¬¼ë¦¬ì ì¸ í…Œì´ë¸”ì´ ì•„ë‹Œë° ì…ë ¥ì„ í–ˆìŒ -> ì‹¤ì œë¡œ ë·°ë¥¼ ë§Œë“  í…Œì´ë¸”ì— ì…ë ¥ë¨!
+Delete from emp_v2 where ì§ì›ë²ˆí˜¸ = 207;
 select * from employees;
-// view »ı¼º ½Ã º°Äª »ç¿ë(Á÷¿ø¹øÈ£)
+// view ìƒì„± ì‹œ ë³„ì¹­ ì‚¬ìš©(ì§ì›ë²ˆí˜¸)
 
--- ÀĞ±â¸¸ °¡´ÉÇÑ ºä·Î ¸¸µé±â(with read only)
-CREATE VIEW EMP_read(Á÷¿ø¹øÈ£,ÀÌ¸§,¼º,ÀÌ¸ŞÀÏ,°í¿ëÀÏÀÚ,Á÷Á¾)
+-- ì½ê¸°ë§Œ ê°€ëŠ¥í•œ ë·°ë¡œ ë§Œë“¤ê¸°(with read only)
+CREATE VIEW EMP_read(ì§ì›ë²ˆí˜¸,ì´ë¦„,ì„±,ì´ë©”ì¼,ê³ ìš©ì¼ì,ì§ì¢…)
 AS
-select employee_id Á÷¿ø¹øÈ£, first_name ÀÌ¸§, last_name ¼º, email, hire_date, job_id
+select employee_id ì§ì›ë²ˆí˜¸, first_name ì´ë¦„, last_name ì„±, email, hire_date, job_id
 from employees with read only;
 
 select * from emp_read;
-Delete from emp_read where Á÷¿ø¹øÈ£ =100;
--- ÀĞ±â¸¸ °¡´ÉÇÑ ºä´Â DML(ÀÔ·Â, ¼öÁ¤, »èÁ¦)°¡ ¾ÈµÊ.
+Delete from emp_read where ì§ì›ë²ˆí˜¸ =100;
+-- ì½ê¸°ë§Œ ê°€ëŠ¥í•œ ë·°ëŠ” DML(ì…ë ¥, ìˆ˜ì •, ì‚­ì œ)ê°€ ì•ˆë¨.

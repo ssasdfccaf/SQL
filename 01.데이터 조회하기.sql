@@ -1,41 +1,41 @@
--- µ¥ÀÌÅÍ Á¶È¸ÇÏ±â
-select department_id ºÎ¼­¹øÈ£, department_name ºÎ¼­ÀÌ¸§ 
+-- ë°ì´í„° ì¡°íšŒí•˜ê¸°
+select department_id ë¶€ì„œë²ˆí˜¸, department_name ë¶€ì„œì´ë¦„ 
 from departments;
--- »ê¼ú¿¬»ê(+-*/)
-select last_name ÀÌ¸§, job_id Á÷Á¾, salary ¿ù±Ş, salary+100 º¸³Ê½º¿ù±Ş, salary - salary*0.1 °¨ºÀ
+-- ì‚°ìˆ ì—°ì‚°(+-*/)
+select last_name ì´ë¦„, job_id ì§ì¢…, salary ì›”ê¸‰, salary+100 ë³´ë„ˆìŠ¤ì›”ê¸‰, salary - salary*0.1 ê°ë´‰
 from employees;
--- DISTINCT Áßº¹ °ª Á¦°Å (¶È°°Àº °ªÀÌ ÀÖÀ»°æ¿ì ÇÏ³ª¸¸ Ç¥½ÃµÊ)
-select DISTINCT job_id Á÷Á¾
+-- DISTINCT ì¤‘ë³µ ê°’ ì œê±° (ë˜‘ê°™ì€ ê°’ì´ ìˆì„ê²½ìš° í•˜ë‚˜ë§Œ í‘œì‹œë¨)
+select DISTINCT job_id ì§ì¢…
 from employees;
--- ¿¹Á¦ ¹®Á¦ Ç®±â
+-- ì˜ˆì œ ë¬¸ì œ í’€ê¸°
 --1
 select employee_id, first_name, last_name
 from employees;
 --2
-select first_name, salary,  salary * 1.1  AS ´º¼¿·¯¸®
+select first_name, salary,  salary * 1.1  AS ë‰´ì…€ëŸ¬ë¦¬
 from employees;
 --3
-select employee_id »ç¿ø¹øÈ£, first_name ÀÌ¸§, last_name ¼º
+select employee_id ì‚¬ì›ë²ˆí˜¸, first_name ì´ë¦„, last_name ì„±
 from employees;
--- ¿¬°á ¿¬»êÀÚ || ¹®ÀÚ¿­À» ¿¬°á
-SELECT last_name || ' is a '|| job_id as Á÷¾÷Á¤º¸
+-- ì—°ê²° ì—°ì‚°ì || ë¬¸ìì—´ì„ ì—°ê²°
+SELECT last_name || ' is a '|| job_id as ì§ì—…ì •ë³´
 from employees;
--- ¿¹Á¦ 4
-SELECT employee_id, first_name||' '||last_name Ç®³×ÀÓ, email||'@company.com' ÀÌ¸ŞÀÏ
+-- ì˜ˆì œ 4
+SELECT employee_id, first_name||' '||last_name í’€ë„¤ì„, email||'@company.com' ì´ë©”ì¼
 from employees;
--- WHERE Á¶°ÇÀı
+-- WHERE ì¡°ê±´ì ˆ
 select *
 from employees
 where salary > 14000;
 
 select *
 from employees
-where last_name = 'King'; -- °°À»°æ¿ì = , µ¥ÀÌÅÍ´Â ´ë¼Ò¹®ÀÚ¸¦ ±¸º°ÇÑ´Ù. ¹®ÀÚ¿­Àº ÇÑ°³µû¿ÈÇ¥
+where last_name = 'King'; -- ê°™ì„ê²½ìš° = , ë°ì´í„°ëŠ” ëŒ€ì†Œë¬¸ìë¥¼ êµ¬ë³„í•œë‹¤. ë¬¸ìì—´ì€ í•œê°œë”°ì˜´í‘œ
 
 SELECT * 
 FROM employees
-WHERE hire_date < '2002-06-10'; --³¯Â¥µµ ºñ±³°¡ µÈ´Ù. ºñ±³½Ã ¹®ÀÚ¿­À» ³¯Â¥ÇüÅÂ·Î ÀûÀ¸¸é ÀÚµ¿º¯È¯µÊ
--- AND OR NOT ¿¬»êÀÚ
+WHERE hire_date < '2002-06-10'; --ë‚ ì§œë„ ë¹„êµê°€ ëœë‹¤. ë¹„êµì‹œ ë¬¸ìì—´ì„ ë‚ ì§œí˜•íƒœë¡œ ì ìœ¼ë©´ ìë™ë³€í™˜ë¨
+-- AND OR NOT ì—°ì‚°ì
 select last_name, department_id, salary
 from employees
 where department_id = 60
@@ -52,7 +52,7 @@ where salary > 4000 AND job_id = 'IT_PROG';
 select * from employees
 where salary > 4000 AND (job_id = 'IT_PROG' OR job_id = 'FI_ACCOUNT');
 
--- IN ¿¬»êÀÚ
+-- IN ì—°ì‚°ì
 select * from employees
 where salary = 4000 OR salary = 3000 OR salary = 2700;
 
@@ -76,53 +76,53 @@ where hire_date BETWEEN '2004-01-01' AND '2004-12-30';
 select * from employees
 where salary NOT BETWEEN 7000 AND 17000;
 
--- LIKE ¿¬»êÀÚ ¹®ÀÚ¿­ Å°¿öµå Á¶È¸½Ã % ¶Ç´Â _ °°ÀÌ »ç¿ë
+-- LIKE ì—°ì‚°ì ë¬¸ìì—´ í‚¤ì›Œë“œ ì¡°íšŒì‹œ % ë˜ëŠ” _ ê°™ì´ ì‚¬ìš©
 SELECT *
 FROM employees
-WHERE last_name LIKE 'B%'; --B·Î ½ÃÀÛÇÏ´Â ¸ğµç ¹®ÀÚ¿­ °Ë»ö
+WHERE last_name LIKE 'B%'; --Bë¡œ ì‹œì‘í•˜ëŠ” ëª¨ë“  ë¬¸ìì—´ ê²€ìƒ‰
 SELECT *
 FROM employees
-WHERE last_name LIKE '%b%'; --Áß°£¿¡ b°¡ µé¾î°¡´Â ¸ğµç ¹®ÀÚ¿­
+WHERE last_name LIKE '%b%'; --ì¤‘ê°„ì— bê°€ ë“¤ì–´ê°€ëŠ” ëª¨ë“  ë¬¸ìì—´
 SELECT *
 FROM employees
-WHERE last_name LIKE '____y'; -- ¾ğ´õ¹Ù_´Â µü ÇÑ ¹®ÀÚ¸¦ ÀÇ¹Ì
--- ¿¹Á¦ 1
+WHERE last_name LIKE '____y'; -- ì–¸ë”ë°”_ëŠ” ë”± í•œ ë¬¸ìë¥¼ ì˜ë¯¸
+-- ì˜ˆì œ 1
 SELECT * FROM employees
 WHERE job_id LIKE '%AD%';
--- ¿¹Á¦ 2
+-- ì˜ˆì œ 2
 SELECT * FROM employees
 WHERE job_id LIKE '%AD___';
--- ¿¹Á¦ 3
+-- ì˜ˆì œ 3
 SELECT * FROM employees
 WHERE phone_number LIKE '%1234';
--- ¿¹Á¦ 4
+-- ì˜ˆì œ 4
 SELECT * FROM employees
 WHERE phone_number NOT LIKE '%3%' AND phone_number LIKE '%9';
--- ¿¹Á¦ 5
+-- ì˜ˆì œ 5
 SELECT * FROM employees
 WHERE job_id LIKE '%MGR%' OR  job_id LIKE '%ASST%';
 
--- ³Î°ªÀ» °Ë»öÇÒ¶§ is null
+-- ë„ê°’ì„ ê²€ìƒ‰í• ë•Œ is null
 SELECT * FROM employees
 where commission_pct is null;
--- ³ÎÀÌ ¾Æ´Ñ °æ¿ì is not null
+-- ë„ì´ ì•„ë‹Œ ê²½ìš° is not null
 SELECT * FROM employees
 where commission_pct is not null;
--- ¿¹Á¦ 
+-- ì˜ˆì œ 
 SELECT * FROM employees
 where manager_id is null;
 
--- ORDER BY Á¤·Ä¼ø¼­¸¦ Á¤ÇÔ
+-- ORDER BY ì •ë ¬ìˆœì„œë¥¼ ì •í•¨
 SELECT * FROM employees
-ORDER BY salary DESC; -- ASC(¼øÂ÷Àû,µğÆúÆ® »ı·«°¡´É) DESC(³»¸²Â÷¼ø)
--- 2°³ ÀÌ»ó ¿­·Î Á¤·Ä½Ã
+ORDER BY salary DESC; -- ASC(ìˆœì°¨ì ,ë””í´íŠ¸ ìƒëµê°€ëŠ¥) DESC(ë‚´ë¦¼ì°¨ìˆœ)
+-- 2ê°œ ì´ìƒ ì—´ë¡œ ì •ë ¬ì‹œ
 SELECT department_id, employee_id, first_name, last_name 
 FROM employees
-ORDER BY department_id , employee_id; -- Ã³À½¿¡ ºÎ¼­¹øÈ£¼øÀÌ°í °°À¸¸é Á÷¿ø¹øÈ£¼ø¼­
--- º°Äª¿­·Î Á¤·Ä
-SELECT department_id, last_name, salary*12 ¿¬ºÀ
+ORDER BY department_id , employee_id; -- ì²˜ìŒì— ë¶€ì„œë²ˆí˜¸ìˆœì´ê³  ê°™ìœ¼ë©´ ì§ì›ë²ˆí˜¸ìˆœì„œ
+-- ë³„ì¹­ì—´ë¡œ ì •ë ¬
+SELECT department_id, last_name, salary*12 ì—°ë´‰
 FROM employees
-ORDER BY ¿¬ºÀ DESC; --¿¬ºÀÀÌ Å«¼øÀ¸·Î Á¤·Ä
+ORDER BY ì—°ë´‰ DESC; --ì—°ë´‰ì´ í°ìˆœìœ¼ë¡œ ì •ë ¬
 --1
 SELECT employee_id, first_name, last_name
 FROM employees
@@ -132,7 +132,7 @@ SELECT * FROM employees
 where job_id LIKE '%CLERK%'
 ORDER BY salary DESC;
 -- 3
-SELECT employee_id Á÷¿ø¹øÈ£, last_name ÀÌ¸§, department_id ºÎ¼­¹øÈ£, salary ¿ù±Ş
+SELECT employee_id ì§ì›ë²ˆí˜¸, last_name ì´ë¦„, department_id ë¶€ì„œë²ˆí˜¸, salary ì›”ê¸‰
 FROM employees
 where employee_id BETWEEN 120 AND 150
 ORDER BY department_id DESC, salary DESC;
